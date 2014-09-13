@@ -21,6 +21,7 @@
 		894148E719C4FBEB0030107C /* AppIcon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 894148DE19C4FBEB0030107C /* AppIcon-58.png */; };
 		894148EA19C4FC370030107C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894148E919C4FC370030107C /* Main.storyboard */; };
 		894148EC19C4FD3C0030107C /* AppIcon-87.png in Resources */ = {isa = PBXBuildFile; fileRef = 894148EB19C4FD3C0030107C /* AppIcon-87.png */; };
+		894148EE19C50E3A0030107C /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 894148ED19C50E3A0030107C /* Images-2.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		894148DE19C4FBEB0030107C /* AppIcon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-58.png"; sourceTree = "<group>"; };
 		894148E919C4FC370030107C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		894148EB19C4FD3C0030107C /* AppIcon-87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-87.png"; sourceTree = "<group>"; };
+		894148ED19C50E3A0030107C /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				894148E819C4FBF50030107C /* Resources */,
 				894148B619C4FBB60030107C /* AppDelegate.swift */,
 				894148BD19C4FBB60030107C /* Images.xcassets */,
+				894148ED19C50E3A0030107C /* Images-2.xcassets */,
 				894148B419C4FBB60030107C /* Supporting Files */,
 			);
 			path = Tomato;
@@ -232,6 +235,7 @@
 				894148EA19C4FC370030107C /* Main.storyboard in Resources */,
 				894148EC19C4FD3C0030107C /* AppIcon-87.png in Resources */,
 				894148E519C4FBEB0030107C /* AppIcon-120.png in Resources */,
+				894148EE19C50E3A0030107C /* Images-2.xcassets in Resources */,
 				894148E719C4FBEB0030107C /* AppIcon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +432,7 @@
 				894148D219C4FBB60030107C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		894148D319C4FBB60030107C /* Build configuration list for PBXNativeTarget "TomatoTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +441,7 @@
 				894148D519C4FBB60030107C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
