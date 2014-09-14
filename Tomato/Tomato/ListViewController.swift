@@ -38,7 +38,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // TODO: Network Error
             }
         })
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,7 +75,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             detailsDictionary.setValue(value, forKey: key)
         }
         
-        let detailsViewController = DetailsViewController(nibName: nil, bundle: nil)
+        let detailsViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
         detailsViewController.detailsDictionary = detailsDictionary as NSDictionary
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
