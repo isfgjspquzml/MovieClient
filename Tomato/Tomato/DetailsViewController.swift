@@ -10,6 +10,17 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var runtimeLabel: UILabel!
+    @IBOutlet weak var criticScoreLabel: UILabel!
+    @IBOutlet weak var audienceScoreLabel: UILabel!
+    @IBOutlet weak var criticScoreImageView: UIImageView!
+    @IBOutlet weak var audienceScoreImageView: UIImageView!
+    
     var detailsDictionary: NSDictionary?
 
     required init(coder aDecoder: NSCoder) {
@@ -26,7 +37,20 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if(detailsDictionary != nil) {
+            let originalImageURL = NSURL.URLWithString((detailsDictionary!["posters"] as NSDictionary)["original"] as String)
+            var err: NSError?
+            var originalImageData :NSData = NSData.dataWithContentsOfURL(originalImageURL,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)
             
+            posterImageView.image = UIImage(data: originalImageData)
+            titleLabel.text = detailsDictionary!["title"] as NSString
+            yearLabel.text = String(detailsDictionary!["year"] as Int)
+            ratingLabel.text = detailsDictionary!["mpaa_rating"] as NSString
+            synopsisLabel.text = detailsDictionary!["synopsis"] as NSString
+            synopsisLabel.numberOfLines = 0;
+            runtimeLabel.text = detailsDictionary!["runtime"] as NSString
+            audienceScoreLabel.text = String((detailsDictionary!["ratings"] as NSDictionary)["audience_score"] as Int)
+        }
     }
 }

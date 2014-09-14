@@ -50,15 +50,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = movieList.dequeueReusableCellWithIdentifier("com.tianyu.Rotten-Tomatoes.movieCell") as MovieTableViewCell
+        let cell = movieList.dequeueReusableCellWithIdentifier("com.tianyu.Tomato.movieCell") as MovieTableViewCell
         let movieDictionary = self.moviesArray![indexPath.row] as NSDictionary
+        let thumbnailURL = NSURL.URLWithString((movieDictionary["posters"] as NSDictionary)["thumbnail"] as String)
+        var err: NSError?
+        var thumbnailImageData :NSData = NSData.dataWithContentsOfURL(thumbnailURL,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)
+        
         cell.movieTitleLabel.text = movieDictionary["title"] as NSString
         cell.movieYearLabel.text = String(movieDictionary["year"] as Int)
         cell.movieRatingLabel.text = movieDictionary["mpaa_rating"] as NSString
         cell.movieScoreLabel.text = String((movieDictionary["ratings"] as NSDictionary)["audience_score"] as Int) + "/100"
         cell.movieDescriptionLabel.text = movieDictionary["synopsis"] as NSString
         cell.movieDescriptionLabel.numberOfLines = 0;
-        
+        cell.moviePosterImage.image = UIImage(data: thumbnailImageData)
         return cell
     }
     

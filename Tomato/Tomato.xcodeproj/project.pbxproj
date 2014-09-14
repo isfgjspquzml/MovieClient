@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		890448D219C512B800BDB019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890448D119C512B800BDB019 /* AppDelegate.swift */; };
 		890448D919C512B800BDB019 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890448D819C512B800BDB019 /* Images.xcassets */; };
-		890448DC19C512B800BDB019 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890448DA19C512B800BDB019 /* LaunchScreen.xib */; };
 		890448E819C512B800BDB019 /* TomatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890448E719C512B800BDB019 /* TomatoTests.swift */; };
 		890448F219C512CC00BDB019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890448F119C512CC00BDB019 /* Main.storyboard */; };
 		890448F419C5134500BDB019 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890448F319C5134500BDB019 /* ListViewController.swift */; };
@@ -22,6 +21,9 @@
 		8904490619C5142F00BDB019 /* AppIcon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 890448FF19C5142F00BDB019 /* AppIcon-80.png */; };
 		8904490719C5142F00BDB019 /* AppIcon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 8904490019C5142F00BDB019 /* AppIcon-58.png */; };
 		8904490919C51EC000BDB019 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904490819C51EC000BDB019 /* DetailsViewController.swift */; };
+		8904490C19C545E500BDB019 /* thumbup.png in Resources */ = {isa = PBXBuildFile; fileRef = 8904490A19C545E500BDB019 /* thumbup.png */; };
+		8904490D19C545E500BDB019 /* thumbsdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 8904490B19C545E500BDB019 /* thumbsdown.png */; };
+		8904490F19C5481C00BDB019 /* DetailScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8904490E19C5481C00BDB019 /* DetailScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 		890448D019C512B800BDB019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890448D119C512B800BDB019 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		890448D819C512B800BDB019 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		890448DB19C512B800BDB019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		890448E119C512B800BDB019 /* TomatoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		890448E619C512B800BDB019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890448E719C512B800BDB019 /* TomatoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoTests.swift; sourceTree = "<group>"; };
@@ -54,6 +55,9 @@
 		890448FF19C5142F00BDB019 /* AppIcon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-80.png"; sourceTree = "<group>"; };
 		8904490019C5142F00BDB019 /* AppIcon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-58.png"; sourceTree = "<group>"; };
 		8904490819C51EC000BDB019 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8904490A19C545E500BDB019 /* thumbup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbup.png; sourceTree = "<group>"; };
+		8904490B19C545E500BDB019 /* thumbsdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsdown.png; sourceTree = "<group>"; };
+		8904490E19C5481C00BDB019 /* DetailScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,7 @@
 				890448F319C5134500BDB019 /* ListViewController.swift */,
 				890448F619C5136300BDB019 /* MovieTableViewCell.swift */,
 				890448F119C512CC00BDB019 /* Main.storyboard */,
-				890448DA19C512B800BDB019 /* LaunchScreen.xib */,
+				8904490E19C5481C00BDB019 /* DetailScreen.xib */,
 				890448D819C512B800BDB019 /* Images.xcassets */,
 				890448F919C5141D00BDB019 /* Resources */,
 				890448CF19C512B800BDB019 /* Supporting Files */,
@@ -136,6 +140,8 @@
 		890448F919C5141D00BDB019 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8904490A19C545E500BDB019 /* thumbup.png */,
+				8904490B19C545E500BDB019 /* thumbsdown.png */,
 				890448FA19C5142F00BDB019 /* Default@2x.png */,
 				890448FB19C5142F00BDB019 /* Default.png */,
 				890448FC19C5142F00BDB019 /* AppIcon-180.png */,
@@ -230,11 +236,13 @@
 				8904490119C5142F00BDB019 /* Default@2x.png in Resources */,
 				890448F219C512CC00BDB019 /* Main.storyboard in Resources */,
 				8904490319C5142F00BDB019 /* AppIcon-180.png in Resources */,
-				890448DC19C512B800BDB019 /* LaunchScreen.xib in Resources */,
+				8904490F19C5481C00BDB019 /* DetailScreen.xib in Resources */,
+				8904490D19C545E500BDB019 /* thumbsdown.png in Resources */,
 				8904490619C5142F00BDB019 /* AppIcon-80.png in Resources */,
 				890448D919C512B800BDB019 /* Images.xcassets in Resources */,
 				8904490219C5142F00BDB019 /* Default.png in Resources */,
 				8904490719C5142F00BDB019 /* AppIcon-58.png in Resources */,
+				8904490C19C545E500BDB019 /* thumbup.png in Resources */,
 				8904490419C5142F00BDB019 /* AppIcon-120.png in Resources */,
 				8904490519C5142F00BDB019 /* AppIcon-87.png in Resources */,
 			);
@@ -278,17 +286,6 @@
 			targetProxy = 890448E219C512B800BDB019 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		890448DA19C512B800BDB019 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				890448DB19C512B800BDB019 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		890448E919C512B800BDB019 /* Debug */ = {
