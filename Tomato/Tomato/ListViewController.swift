@@ -23,11 +23,13 @@ class ListViewController: UIViewController, UITableViewDataSource {
         let request = NSMutableURLRequest(URL: NSURL.URLWithString(RottenTomatoesURLString))
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ (response, data, error) in
             var errorValue: NSError? = nil
-            if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &errorValue) as? NSDictionary {
-                self.moviesArray = dictionary["movies"] as? NSArray
-                self.movieList.reloadData()
+            if(error == nil) {
+                if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &errorValue) as? NSDictionary {
+                    self.moviesArray = dictionary["movies"] as? NSArray
+                    self.movieList.reloadData()
+                }
             } else {
-                // TODO: Something went wrong
+                // TODO: Network Error
             }
         })
         
