@@ -12,6 +12,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var movieList: UITableView!
     
+    let dictObjects = NSArray(objects: "title", "year", "mpaa_rating", "runtime", "ratings", "synopsis", "posters")
+    
     var moviesArray: NSArray?
     
     override func viewWillAppear(animated: Bool) {
@@ -61,7 +63,17 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let movieDictionary = self.moviesArray![indexPath.row] as NSDictionary
+        var detailsDictionary = NSMutableDictionary(capacity: dictObjects.count)
+        
+        for i in 0...(dictObjects.count - 1) {
+            var key = dictObjects[i] as String
+            var value: AnyObject? = movieDictionary[key]
+            detailsDictionary.setValue(value, forKey: key)
+        }
+        
         let detailsViewController = DetailsViewController(nibName: nil, bundle: nil)
+        detailsViewController.detailsDictionary = detailsDictionary as NSDictionary
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
