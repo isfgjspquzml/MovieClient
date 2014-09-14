@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "894148B019C4FBB60030107C"
+               BlueprintIdentifier = "890448CB19C512B800BDB019"
                BuildableName = "Tomato.app"
                BlueprintName = "Tomato"
                ReferencedContainer = "container:Tomato.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "894148C519C4FBB60030107C"
+               BlueprintIdentifier = "890448E019C512B800BDB019"
                BuildableName = "TomatoTests.xctest"
                BlueprintName = "TomatoTests"
                ReferencedContainer = "container:Tomato.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "894148C519C4FBB60030107C"
+               BlueprintIdentifier = "890448E019C512B800BDB019"
                BuildableName = "TomatoTests.xctest"
                BlueprintName = "TomatoTests"
                ReferencedContainer = "container:Tomato.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "894148B019C4FBB60030107C"
+            BlueprintIdentifier = "890448CB19C512B800BDB019"
             BuildableName = "Tomato.app"
             BlueprintName = "Tomato"
             ReferencedContainer = "container:Tomato.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "894148B019C4FBB60030107C"
+            BlueprintIdentifier = "890448CB19C512B800BDB019"
             BuildableName = "Tomato.app"
             BlueprintName = "Tomato"
             ReferencedContainer = "container:Tomato.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "894148B019C4FBB60030107C"
+            BlueprintIdentifier = "890448CB19C512B800BDB019"
             BuildableName = "Tomato.app"
             BlueprintName = "Tomato"
             ReferencedContainer = "container:Tomato.xcodeproj">
