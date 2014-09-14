@@ -19,7 +19,7 @@ class ListViewController: UIViewController, UITableViewDataSource {
         
         // Get Rotten Tomatoes DVDs
         let YourApiKey = "8upky4adwajswdr73bufgjwg"
-        let RottenTomatoesURLString = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=" + YourApiKey
+        let RottenTomatoesURLString = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=" + YourApiKey
         let request = NSMutableURLRequest(URL: NSURL.URLWithString(RottenTomatoesURLString))
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:{ (response, data, error) in
             var errorValue: NSError? = nil
@@ -49,7 +49,7 @@ class ListViewController: UIViewController, UITableViewDataSource {
         cell.movieTitleLabel.text = movieDictionary["title"] as NSString
         cell.movieYearLabel.text = String(movieDictionary["year"] as Int)
         cell.movieRatingLabel.text = movieDictionary["mpaa_rating"] as NSString
-        cell.movieScoreLabel.text = String((movieDictionary["ratings"] as NSDictionary)["audience_score"] as Int)
+        cell.movieScoreLabel.text = String((movieDictionary["ratings"] as NSDictionary)["audience_score"] as Int) + "/100"
         cell.movieDescriptionLabel.text = movieDictionary["synopsis"] as NSString
         cell.movieDescriptionLabel.numberOfLines = 0;
         
