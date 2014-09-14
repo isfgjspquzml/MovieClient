@@ -12,7 +12,7 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -40,7 +40,7 @@
                                                         <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                                     </accessibility>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.15211022418478259" green="0.15211022418478259" blue="0.15211022418478259" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-n2-Y4L">
@@ -84,6 +84,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="movieDescriptionLabel" destination="LGN-KJ-0pI" id="Mv1-Ao-oli"/>
                                             <outlet property="movieRatingLabel" destination="UOq-fw-7EX" id="5Xk-Xn-YlF"/>
@@ -95,6 +96,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="1YL-1u-ghE"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="dD8-Nm-pr4"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -102,6 +104,7 @@
                     <navigationItem key="navigationItem" id="5im-ac-jwJ"/>
                     <connections>
                         <outlet property="movieList" destination="Nv9-2Q-4sa" id="GVJ-zB-ZAr"/>
+                        <outlet property="view" destination="kh9-bI-dsS" id="t0p-CG-KGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

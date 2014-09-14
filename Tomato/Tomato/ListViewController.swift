@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var movieList: UITableView!
     
     var moviesArray: NSArray?
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor.blackColor();
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,11 @@ class ListViewController: UIViewController, UITableViewDataSource {
         cell.movieDescriptionLabel.numberOfLines = 0;
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailsViewController = DetailsViewController(nibName: nil, bundle: nil)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
 

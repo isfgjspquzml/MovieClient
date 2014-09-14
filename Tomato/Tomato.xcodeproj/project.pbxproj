@@ -13,7 +13,6 @@
 		890448E819C512B800BDB019 /* TomatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890448E719C512B800BDB019 /* TomatoTests.swift */; };
 		890448F219C512CC00BDB019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890448F119C512CC00BDB019 /* Main.storyboard */; };
 		890448F419C5134500BDB019 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890448F319C5134500BDB019 /* ListViewController.swift */; };
-		890448F719C5136300BDB019 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890448F519C5136300BDB019 /* MovieViewController.swift */; };
 		890448F819C5136300BDB019 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890448F619C5136300BDB019 /* MovieTableViewCell.swift */; };
 		8904490119C5142F00BDB019 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 890448FA19C5142F00BDB019 /* Default@2x.png */; };
 		8904490219C5142F00BDB019 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 890448FB19C5142F00BDB019 /* Default.png */; };
@@ -22,6 +21,7 @@
 		8904490519C5142F00BDB019 /* AppIcon-87.png in Resources */ = {isa = PBXBuildFile; fileRef = 890448FE19C5142F00BDB019 /* AppIcon-87.png */; };
 		8904490619C5142F00BDB019 /* AppIcon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 890448FF19C5142F00BDB019 /* AppIcon-80.png */; };
 		8904490719C5142F00BDB019 /* AppIcon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 8904490019C5142F00BDB019 /* AppIcon-58.png */; };
+		8904490919C51EC000BDB019 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8904490819C51EC000BDB019 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,6 @@
 		890448E719C512B800BDB019 /* TomatoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoTests.swift; sourceTree = "<group>"; };
 		890448F119C512CC00BDB019 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		890448F319C5134500BDB019 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		890448F519C5136300BDB019 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieViewController.swift; path = ../MovieViewController.swift; sourceTree = "<group>"; };
 		890448F619C5136300BDB019 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieTableViewCell.swift; path = ../MovieTableViewCell.swift; sourceTree = "<group>"; };
 		890448FA19C5142F00BDB019 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		890448FB19C5142F00BDB019 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		890448FE19C5142F00BDB019 /* AppIcon-87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-87.png"; sourceTree = "<group>"; };
 		890448FF19C5142F00BDB019 /* AppIcon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-80.png"; sourceTree = "<group>"; };
 		8904490019C5142F00BDB019 /* AppIcon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-58.png"; sourceTree = "<group>"; };
+		8904490819C51EC000BDB019 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,14 +95,14 @@
 		890448CE19C512B800BDB019 /* Tomato */ = {
 			isa = PBXGroup;
 			children = (
-				890448F919C5141D00BDB019 /* Resources */,
-				890448F519C5136300BDB019 /* MovieViewController.swift */,
-				890448F619C5136300BDB019 /* MovieTableViewCell.swift */,
-				890448F319C5134500BDB019 /* ListViewController.swift */,
-				890448F119C512CC00BDB019 /* Main.storyboard */,
 				890448D119C512B800BDB019 /* AppDelegate.swift */,
-				890448D819C512B800BDB019 /* Images.xcassets */,
+				8904490819C51EC000BDB019 /* DetailsViewController.swift */,
+				890448F319C5134500BDB019 /* ListViewController.swift */,
+				890448F619C5136300BDB019 /* MovieTableViewCell.swift */,
+				890448F119C512CC00BDB019 /* Main.storyboard */,
 				890448DA19C512B800BDB019 /* LaunchScreen.xib */,
+				890448D819C512B800BDB019 /* Images.xcassets */,
+				890448F919C5141D00BDB019 /* Resources */,
 				890448CF19C512B800BDB019 /* Supporting Files */,
 			);
 			path = Tomato;
@@ -257,7 +257,7 @@
 				890448F419C5134500BDB019 /* ListViewController.swift in Sources */,
 				890448D219C512B800BDB019 /* AppDelegate.swift in Sources */,
 				890448F819C5136300BDB019 /* MovieTableViewCell.swift in Sources */,
-				890448F719C5136300BDB019 /* MovieViewController.swift in Sources */,
+				8904490919C51EC000BDB019 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
