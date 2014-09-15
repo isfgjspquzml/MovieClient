@@ -11,6 +11,7 @@ import UIKit
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var movieList: UITableView!
+    @IBOutlet var errorView: UIView!
     
     let dictObjects = NSArray(objects: "title", "year", "mpaa_rating", "runtime", "ratings", "synopsis", "posters")
     
@@ -23,6 +24,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.movieList.tintColor = UIColor.whiteColor()
         self.movieList.separatorColor = UIColor.whiteColor()
         self.title = "Box Office Hits"
+        errorView.hidden = true
     }
     
     override func viewDidLoad() {
@@ -41,10 +43,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if(error == nil) {
                 if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &errorValue) as? NSDictionary {
                     self.moviesArray = dictionary["movies"] as? NSArray
+                    self.errorView.hidden = true
                     self.movieList.reloadData()
                 }
             } else {
-                // TODO: Network Error
+                self.errorView.hidden = false
             }
         })
     }

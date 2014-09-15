@@ -103,10 +103,23 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="dD8-Nm-pr4"/>
                                 </connections>
                             </tableView>
+                            <view alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yFS-Ws-wxb">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olQ-Vm-OJB">
+                                        <rect key="frame" x="105" y="11" width="110" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="5im-ac-jwJ"/>
                     <connections>
+                        <outlet property="errorView" destination="yFS-Ws-wxb" id="HQj-B6-J9k"/>
                         <outlet property="movieList" destination="Nv9-2Q-4sa" id="GVJ-zB-ZAr"/>
                         <outlet property="view" destination="kh9-bI-dsS" id="t0p-CG-KGo"/>
                     </connections>
