@@ -18,6 +18,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     lazy var fileNotFound = UIImage(named: "filenotfound.png")
     var moviesArray: NSArray?
     var dismissed: Bool?
+    var refreshControl: UIRefreshControl?
     
     override func viewWillAppear(animated: Bool) {
         self.movieList.backgroundColor = UIColor.darkGrayColor()
@@ -29,11 +30,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        refreshControl?.backgroundColor = UIColor.darkGrayColor()
+        refreshControl?.tintColor = UIColor.whiteColor()
+        refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        movieList.addSubview(refreshControl!)
         
         // Show loading
         dismissed = false
         SVProgressHUD.show()
-        
+        getMovieData()
+    }
+    
+    func getMovieData() {
         // Get Rotten Tomatoes DVDs
         let YourApiKey = "8upky4adwajswdr73bufgjwg"
         let RottenTomatoesURLString = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=" + YourApiKey
@@ -52,10 +61,40 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         })
     }
     
+    func refresh(sender:AnyObject)
+    {
+        getMovieData()
+        movieList.reloadData()
+        
+        if(refreshControl != nil) {
+            let dateFormater = NSDateFormatter()
+            dateFormater.setLocalizedDateFormatFromTemplate("MMM d, h:mm a")
+            let title = "Updated " + dateFormater.stringFromDate(NSDate())
+            let attrDict = NSDictionary(object: UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
+            let attrString = NSAttributedString(string: title, attributes: attrDict)
+            refreshControl!.attributedTitle = attrString
+            refreshControl?.endRefreshing()
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(moviesArray != nil) {
             return moviesArray!.count
         } else {
+            SVProgressHUD.dismiss()
+            
+            // Display a message when the table is empty
+            let rect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)
+            var messageLabel = UILabel( frame: rect)
+            messageLabel.text = "Pull down to refresh"
+            messageLabel.textColor = UIColor.whiteColor()
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = NSTextAlignment.Center
+            messageLabel.sizeToFit()
+            
+            movieList.backgroundView = messageLabel
+            movieList.separatorStyle = UITableViewCellSeparatorStyle.None
+            
             return 0
         }
     }
