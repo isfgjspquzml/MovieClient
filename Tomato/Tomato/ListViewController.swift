@@ -18,7 +18,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var moviesArray: NSArray?
     
     override func viewWillAppear(animated: Bool) {
-        self.view.backgroundColor = UIColor.blackColor();
+        self.movieList.backgroundColor = UIColor.darkGrayColor()
+        self.movieList.tintColor = UIColor.whiteColor()
+        self.movieList.separatorColor = UIColor.whiteColor()
+        self.title = "Box Office Hits"
     }
     
     override func viewDidLoad() {
@@ -71,7 +74,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.movieRatingLabel.text = movieDictionary["mpaa_rating"] as NSString
         
         let rating = (movieDictionary["ratings"] as NSDictionary)["audience_score"] as Int
-        cell.movieScoreLabel.textColor = (rating < 50) ? UIColor.redColor() : UIColor(red: 0, green: 0.72, blue: 0.05, alpha: 1)
+//        cell.movieScoreLabel.textColor = (rating < 50) ? UIColor(red: 1, green: 0.86, blue: 0.86, alpha: 1) : UIColor(red: 0.86, green: 1, blue: 0.86, alpha: 1)
         cell.movieScoreLabel.text = String(rating) + "/100"
         
         cell.movieDescriptionLabel.text = movieDictionary["synopsis"] as NSString

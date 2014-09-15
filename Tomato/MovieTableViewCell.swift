@@ -19,7 +19,11 @@ class MovieTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backgroundColor = UIColor.darkGrayColor()
+        
+        var bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.blackColor()
+        self.selectedBackgroundView = bgColorView
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
