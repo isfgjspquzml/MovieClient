@@ -43,16 +43,27 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         bottomY = detailView.frame.size.height
         if(detailsDictionary != nil) {
+            // Load low resolution image
             let imageStringURL = (detailsDictionary!["posters"] as NSDictionary)["original"] as String
             let imageURL = NSURL.URLWithString(imageStringURL)
-            let highResStringURL = imageStringURL.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
-            let highResURL = NSURL.URLWithString(highResStringURL)
-            let audienceScore = (detailsDictionary!["ratings"] as NSDictionary)["audience_score"] as Int
-            let criticScore = (detailsDictionary!["ratings"] as NSDictionary)["critics_score"] as Int
             var err: NSError?
             var imageData :NSData = NSData.dataWithContentsOfURL(imageURL,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)
-            
             posterImageView.image = UIImage(data: imageData)
+            
+            let highResStringURL = imageStringURL.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
+            let highResURL = NSURL.URLWithString(highResStringURL)
+            let highResURLRequest = NSURLRequest(URL: highResURL)
+            let highResRequest = AFHTTPRequestOperation(request: highResURLRequest)
+            highResRequest.responseSerializer = AFImageResponseSerializer()
+            highResRequest.setCompletionBlockWithSuccess(
+                {(operation: AFHTTPRequestOperation!, obj) in
+                    self.posterImageView.image = obj as? UIImage
+                },
+                failure: {(operation: AFHTTPRequestOperation!, obj) in
+                    NSLog("Image error")
+            })
+            highResRequest.start()
+            
             detailView.sendSubviewToBack(posterImageView)
             titleLabel.text = detailsDictionary!["title"] as NSString + " (" + String(detailsDictionary!["year"] as Int) + ")"
             ratingLabel.text = detailsDictionary!["mpaa_rating"] as NSString
@@ -65,6 +76,8 @@ class DetailViewController: UIViewController {
             synopsisTextView.frame.size.height = frameHeight.height
             
             runtimeLabel.text = String(detailsDictionary!["runtime"] as Int) + " MIN"
+            let audienceScore = (detailsDictionary!["ratings"] as NSDictionary)["audience_score"] as Int
+            let criticScore = (detailsDictionary!["ratings"] as NSDictionary)["critics_score"] as Int
             audienceScoreLabel.text = String(audienceScore)
             criticScoreLabel.text = String(criticScore)
             audienceScoreImageView.image = (audienceScore > 50) ? thumbsUp : thumbsDown

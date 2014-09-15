@@ -14,6 +14,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let dictObjects = NSArray(objects: "title", "year", "mpaa_rating", "runtime", "ratings", "synopsis", "posters")
     
+    lazy var fileNotFound = UIImage(named: "filenotfound.png")
     var moviesArray: NSArray?
     
     override func viewWillAppear(animated: Bool) {
@@ -51,9 +52,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = movieList.dequeueReusableCellWithIdentifier("com.tianyu.Tomato.movieCell") as MovieTableViewCell
         let movieDictionary = self.moviesArray![indexPath.row] as NSDictionary
+        
         let thumbnailURL = NSURL.URLWithString((movieDictionary["posters"] as NSDictionary)["thumbnail"] as String)
-        var err: NSError?
-        var thumbnailImageData :NSData = NSData.dataWithContentsOfURL(thumbnailURL,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)
+        let thumbnailURLRequest = NSURLRequest(URL: thumbnailURL)
+        let thumbnailRequest = AFHTTPRequestOperation(request: thumbnailURLRequest)
+        thumbnailRequest.responseSerializer = AFImageResponseSerializer()
+        thumbnailRequest.setCompletionBlockWithSuccess(
+            {(operation: AFHTTPRequestOperation!, obj) in
+                cell.moviePosterImage.image = obj as? UIImage
+            },
+            failure: {(operation: AFHTTPRequestOperation!, obj) in
+                cell.moviePosterImage.image = self.fileNotFound
+        })
+        thumbnailRequest.start()
         
         cell.movieTitleLabel.text = movieDictionary["title"] as NSString
         cell.movieYearLabel.text = String(movieDictionary["year"] as Int)
@@ -65,7 +76,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.movieDescriptionLabel.text = movieDictionary["synopsis"] as NSString
         cell.movieDescriptionLabel.numberOfLines = 0;
-        cell.moviePosterImage.image = UIImage(data: thumbnailImageData)
         return cell
     }
     
