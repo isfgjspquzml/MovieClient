@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     
     lazy var thumbsUp = UIImage(named: "thumbsup.png")
     lazy var thumbsDown = UIImage(named: "thumbsdown.png")
+    var bottomY: CGFloat?
     var detailsDictionary: NSDictionary?
     
     required init(coder aDecoder: NSCoder) {
@@ -40,7 +41,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        bottomY = detailView.frame.size.height
         if(detailsDictionary != nil) {
             let imageStringURL = (detailsDictionary!["posters"] as NSDictionary)["original"] as String
             let imageURL = NSURL.URLWithString(imageStringURL)
@@ -61,7 +62,6 @@ class DetailViewController: UIViewController {
             // Resize the textview
             var frameSize = CGSize(width: synopsisTextView.frame.size.width, height: CGFloat.max)
             var frameHeight = synopsisTextView.sizeThatFits(frameSize)
-            println(frameHeight.height)
             synopsisTextView.frame.size.height = frameHeight.height
             
             runtimeLabel.text = String(detailsDictionary!["runtime"] as Int) + " MIN"
@@ -77,19 +77,22 @@ class DetailViewController: UIViewController {
                     totalHeight = view.frame.origin.y + view.frame.size.height;
                 }
             }
+            
+            let moveDist = totalHeight/2 - titleLabel.frame.size.height
             informationView.frame.size.height = totalHeight
-            
-            
+            informationView.center.y = bottomY! + moveDist
         }
     }
     
-    
-//    @IBAction func informationViewDragged(sender: UIPanGestureRecognizer) {
-//        var translation: CGPoint = sender.translationInView(informationView)
-//        var top = (informationView.
-//        
-//        informationView.center = CGPointMake(informationView.center.x, informationView.center.y + translation.y/10)
-//        println(informationView.center.y)
-//    
-//    }
+    @IBAction func informationViewOnPan(sender: UIPanGestureRecognizer) {
+        let translation = sender.translationInView(self.view)
+        let translatedY = sender.view!.center.y + translation.y
+        let minY = bottomY! - informationView.frame.size.height/2
+        let maxY = bottomY! - titleLabel.frame.size.height + informationView.frame.size.height/2
+        var fixedY = (translatedY > minY) ? translatedY : minY
+        fixedY = (fixedY < maxY) ? fixedY : maxY
+        
+        sender.view!.center = CGPoint(x:sender.view!.center.x, y:fixedY)
+        sender.setTranslation(CGPointZero, inView: self.view)
+    }
 }
