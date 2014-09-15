@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
     lazy var thumbsDown = UIImage(named: "thumbsdown.png")
     var bottomY: CGFloat?
     var detailsDictionary: NSDictionary?
+    var loaded: Bool?
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -33,14 +34,22 @@ class DetailViewController: UIViewController {
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        loaded = false
     }
     
     override func viewWillAppear(animated: Bool) {
         self.view.backgroundColor = UIColor.whiteColor()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if(!loaded!) {
+            SVProgressHUD.show()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         bottomY = detailView.frame.size.height
         if(detailsDictionary != nil) {
             // Load low resolution image
@@ -58,6 +67,8 @@ class DetailViewController: UIViewController {
             highResRequest.setCompletionBlockWithSuccess(
                 {(operation: AFHTTPRequestOperation!, obj) in
                     self.posterImageView.image = obj as? UIImage
+                    SVProgressHUD.dismiss()
+                    self.loaded = true
                 },
                 failure: {(operation: AFHTTPRequestOperation!, obj) in
                     NSLog("Image error")

@@ -16,6 +16,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     lazy var fileNotFound = UIImage(named: "filenotfound.png")
     var moviesArray: NSArray?
+    var dismissed: Bool?
     
     override func viewWillAppear(animated: Bool) {
         self.movieList.backgroundColor = UIColor.darkGrayColor()
@@ -26,6 +27,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Show loading
+        dismissed = false
+        SVProgressHUD.show()
         
         // Get Rotten Tomatoes DVDs
         let YourApiKey = "8upky4adwajswdr73bufgjwg"
@@ -79,6 +84,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.movieDescriptionLabel.text = movieDictionary["synopsis"] as NSString
         cell.movieDescriptionLabel.numberOfLines = 0;
+        
+        if(!dismissed!) {
+            SVProgressHUD.dismiss()
+            dismissed = true
+        }
+        
         return cell
     }
     
