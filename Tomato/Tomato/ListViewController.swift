@@ -58,7 +58,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.movieTitleLabel.text = movieDictionary["title"] as NSString
         cell.movieYearLabel.text = String(movieDictionary["year"] as Int)
         cell.movieRatingLabel.text = movieDictionary["mpaa_rating"] as NSString
-        cell.movieScoreLabel.text = String((movieDictionary["ratings"] as NSDictionary)["audience_score"] as Int) + "/100"
+        
+        let rating = (movieDictionary["ratings"] as NSDictionary)["audience_score"] as Int
+        cell.movieScoreLabel.textColor = (rating < 50) ? UIColor.redColor() : UIColor(red: 0, green: 0.72, blue: 0.05, alpha: 1)
+        cell.movieScoreLabel.text = String(rating) + "/100"
+        
         cell.movieDescriptionLabel.text = movieDictionary["synopsis"] as NSString
         cell.movieDescriptionLabel.numberOfLines = 0;
         cell.moviePosterImage.image = UIImage(data: thumbnailImageData)
