@@ -79,6 +79,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(moviesArray != nil) {
+            movieList.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
             return moviesArray!.count
         } else {
             SVProgressHUD.dismiss()
@@ -110,6 +111,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         thumbnailRequest.setCompletionBlockWithSuccess(
             {(operation: AFHTTPRequestOperation!, obj) in
                 cell.moviePosterImage.image = obj as? UIImage
+                UIView.animateWithDuration(1, animations: {
+                    cell.moviePosterImage.alpha = 1
+                })
             },
             failure: {(operation: AFHTTPRequestOperation!, obj) in
                 cell.moviePosterImage.image = self.fileNotFound

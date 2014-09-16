@@ -37,8 +37,12 @@ class DetailViewController: UIViewController {
         loaded = false
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        SVProgressHUD.dismiss()
+    }
+    
     override func viewWillAppear(animated: Bool) {
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.blackColor()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -58,6 +62,10 @@ class DetailViewController: UIViewController {
             var err: NSError?
             var imageData :NSData = NSData.dataWithContentsOfURL(imageURL,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)
             posterImageView.image = UIImage(data: imageData)
+            
+            UIView.animateWithDuration(1, animations: {
+                self.posterImageView.alpha = 1
+            })
             
             let highResStringURL = imageStringURL.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
             let highResURL = NSURL.URLWithString(highResStringURL)

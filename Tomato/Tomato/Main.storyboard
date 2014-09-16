@@ -82,7 +82,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.85999999999999999" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfE-53-K1K">
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfE-53-K1K">
                                                     <rect key="frame" x="7" y="8" width="72" height="104"/>
                                                 </imageView>
                                             </subviews>
