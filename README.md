@@ -10,6 +10,13 @@ Which stories have I completed:
   - Customized highlight and select option of cell
   
 Sample gifs
+
 ![Alt text](/online.gif?raw=true "Optional Title")
 
-![Alt text2](/offline.gif?raw=true "Optional Title")
+  - View list of movies w/ asynchronous poster loading
+  - View movie details by tapping a cell
+  - Pull to refresh
+
+![Alt text2](/offline.png?raw=true "Optional Title")
+
+  - Error message when there is a network error
